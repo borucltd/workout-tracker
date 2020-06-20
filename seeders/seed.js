@@ -18,7 +18,7 @@ mongoose.connect(`mongodb://${databaseUser}:${databasePassword}@${databaseUrl}:$
 let workoutSeed = [
   {
     day: new Date().setDate(new Date().getDate()-10),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Bicep Curl",
@@ -31,7 +31,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-9),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Lateral Pull",
@@ -44,7 +44,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-8),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Push Press",
@@ -57,7 +57,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-7),
-    exercises: [
+    exercise: [
       {
         type: "cardio",
         name: "Running",
@@ -68,7 +68,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-6),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Bench Press",
@@ -81,7 +81,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-5),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Bench Press",
@@ -94,7 +94,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-4),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Quad Press",
@@ -107,7 +107,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-3),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Bench Press",
@@ -120,7 +120,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-2),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Military Press",
@@ -133,7 +133,7 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-1),
-    exercises: [
+    exercise: [
       {
         type: "resistance",
         name: "Bench",
