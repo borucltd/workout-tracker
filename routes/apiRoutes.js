@@ -26,13 +26,6 @@ router.get("/api/workouts", function(req, res) {
 });
 
 // PUT => addExercise
-
-
-// POST => /api/workouts
-
-
-
-// GET => /api/workouts/range
 router.put("/api/workouts/:id", function(req, res) {
   console.log("ADDING workout with id " + req.params.id)
   console.log("Type:" + req.body.type)
@@ -76,14 +69,20 @@ router.put("/api/workouts/:id", function(req, res) {
   });
 });
 
-router.post("/api/workouts", function(req, res) {
-  console.log("heeere")
+
+// GET => /api/workouts/range
+// View multiple the combined weight of multiple exercises on the `stats` page.
+router.get("/api/workouts/range", function(req, res) {
+  console.log("Dashboard")
   db.Workout.find({})
   .then(data => {
-    console.log(data[1]);   
-    res.json(data[1])
+    res.json(data)
   })
 });
+
+
+
+
 
 
 
