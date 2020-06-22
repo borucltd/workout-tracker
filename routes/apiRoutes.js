@@ -51,7 +51,6 @@ router.put("/api/workouts/:id", function(req, res) {
     }
   }
 
-  console.log(new_exercise)
   //  db.collection.updateOne(query, update, [options], [callback]) mongoose.Types.ObjectId(req.params.id)
   db.Workout.updateOne(
     {
@@ -70,6 +69,46 @@ router.put("/api/workouts/:id", function(req, res) {
 });
 
 
+// PUT => addExercise to the new workout
+router.post("/api/workouts", function(req, res) {
+
+  let new_day =  new Date().setDate(new Date().getDate())
+
+  let new_exercise = {}
+  if (req.body.type === "cardio") {
+    // cardio
+    new_exercise = {
+        type: req.body.type,
+        name: req.body.name,
+        distance: req.body.distance,
+        duration: req.body.duration
+      }
+  } else {
+    // non-cardio
+    new_exercise = {
+      type: req.body.type,
+      name: req.body.name,
+      duration: req.body.duration,
+      weight: req.body.weight,
+      reps: req.body.reps,
+      sets: req.body.sets
+    }
+  }
+
+  db.Workout.create({
+      day: new_day,
+      $push: { exercises : new_exercise }
+    },
+    function (err, data) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(data);
+      }
+  });
+});
+  
+
 // GET => /api/workouts/range
 // View multiple the combined weight of multiple exercises on the `stats` page.
 router.get("/api/workouts/range", function(req, res) {
@@ -79,15 +118,5 @@ router.get("/api/workouts/range", function(req, res) {
     res.json(data)
   })
 });
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router
