@@ -5,7 +5,7 @@ const env = require("dotenv").config();
 const db = require("./models");
 
 
-const PORT = process.env.APP_PORT;
+const PORT = process.env.PORT || process.env.APP_PORT;
 
 const app = express();
 
