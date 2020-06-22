@@ -7,9 +7,14 @@ const router = express.Router()
 
 
 // =========================================
+
 router.get("/", function(req, res) {
-    res.sendFile("index.html");
-  });
+  res.sendFile("index.html");
+});
+
+router.get("/exercise", function(req, res) {
+  res.sendFile("exercise.html",{ root: './public'});
+});
 
 
 module.exports = router

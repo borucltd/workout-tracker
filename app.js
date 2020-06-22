@@ -19,8 +19,15 @@ app.use(express.static("public"));
 // routes
 const htmlRoutes = require("./routes/htmlRoutes.js");
 const apiRoutes = require("./routes/apiRoutes.js")
+// app.use((req,res,next) =>  {
+//   console.log("LOGGGGING")
+
+//   console.log(req.query)
+//   next()
+// })
 app.use(htmlRoutes);
 app.use(apiRoutes);
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
